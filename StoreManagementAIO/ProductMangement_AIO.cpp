@@ -697,7 +697,7 @@ EditProduct:
   std::system("CLS");
   std::string command;
   std::cout << "Product Editing Section\n\n"
-            << "Choose the parameter you want to edit:"
+            << "Choose the parameter you want to edit:\n"
             << "1.Name\n"
             << "2.Price\n"
             << "3.Quantity\n"
@@ -708,7 +708,7 @@ EditProduct:
               std::system("CLS");
               std::cout << "Editing Name\n"
                         << "Current Name: " << product.get_name()
-                        << "New Name: "; std::string name; std::cin>>name; product.set_name(name); inventory.update(product);
+                        << " New Name: "; std::string name; std::cin>>name; product.set_name(name); inventory.update(product);
               std::system("CLS");
               std::cout << "Product's Name succussfully changed to: " << product.get_name()
                         << "\n=================================\n"
@@ -725,7 +725,7 @@ EditProduct:
               std::system("CLS");
               std::cout << "Editing Price\n"
                         << "Current Price: " << product.get_price()
-                        << "New Price: "; int price; std::cin>>price; product.set_price(price); inventory.update(product);
+                        << " New Price: "; int price; std::cin>>price; product.set_price(price); inventory.update(product);
               std::system("CLS");
               std::cout << "Product's Price succussfully changed to: " << product.get_price()
                         << "\n=================================\n"
@@ -742,7 +742,7 @@ EditProduct:
               std::system("CLS");
               std::cout << "Editing Quantity\n"
                         << "Current Quantity: " << product.get_quantity()
-                        << "New Quantity: "; int quantity; std::cin>>quantity; product.set_quantity(quantity); inventory.update(product);
+                        << " New Quantity: "; int quantity; std::cin>>quantity; product.set_quantity(quantity); inventory.update(product);
               std::system("CLS");
               std::cout << "Product's Quantity succussfully changed to: " << product.get_quantity()
                         << "\n=================================\n"
@@ -900,7 +900,7 @@ EditCustomer:
   std::system("CLS");
   std::string command;
   std::cout << "Customer Editing Section\n\n"
-            << "Choose the parameter you want to edit:"
+            << "Choose the parameter you want to edit:\n"
             << "1.Name\n"
             << "2.Family\n"
             << "3.Total\n"
@@ -911,7 +911,7 @@ EditCustomer:
               std::system("CLS");
               std::cout << "Editing Name\n"
                         << "Current Name: " << customer.get_name()
-                        << "New Name: "; std::string name; std::cin>>name; customer.set_name(name); CustomerData cd = customer.get_cData(); cList.update(cd); 
+                        << " New Name: "; std::string name; std::cin>>name; customer.set_name(name); CustomerData cd = customer.get_cData(); cList.update(cd); 
               std::system("CLS");
               std::cout << "Customer's Name succussfully changed to: " << customer.get_name()
                         << "\n=================================\n"
@@ -928,7 +928,7 @@ EditCustomer:
               std::system("CLS");
               std::cout << "Editing Family name\n"
                         << "Current Family name: " << customer.get_family()
-                        << "New Family name: "; std::string family; std::cin>>family; customer.set_family(family); CustomerData cd = customer.get_cData(); cList.update(cd);
+                        << " New Family name: "; std::string family; std::cin>>family; customer.set_family(family); CustomerData cd = customer.get_cData(); cList.update(cd);
               std::system("CLS");
               std::cout << "Customer's Family name succussfully changed to: " << customer.get_family()
                         << "\n=================================\n"
@@ -945,7 +945,7 @@ EditCustomer:
               std::system("CLS");
               std::cout << "Editing Total\n"
                         << "Current Total: " << customer.get_total()
-                        << "New Total: "; int total; std::cin>>total; customer.set_total(total); CustomerData cd = customer.get_cData(); cList.update(cd);
+                        << " New Total: "; int total; std::cin>>total; customer.set_total(total); CustomerData cd = customer.get_cData(); cList.update(cd);
               std::system("CLS");
               std::cout << "Customer's Total succussfully changed to: " << customer.get_total()
                         << "\n=================================\n"
