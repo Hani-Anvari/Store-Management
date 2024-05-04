@@ -1,0 +1,12 @@
+1 Smartphone 800 15
+2 Laptop 1000 10
+3 Headphones 150 30
+4 Camera 500 20
+5 Printer 200 25
+6 Keyboard 50 50
+7 Mouse 20 80
+8 Monitor 300 15
+9 MousePad 5 50
+10 Charger 8 10
+
+

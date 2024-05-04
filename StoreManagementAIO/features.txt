@@ -1,0 +1,18 @@
+1.Product
+  a.Add
+  b.Edit
+  c.Display
+  d.Search
+    I.by ID
+    II.by Name
+2.Customer
+  a.Add
+  b.Edit
+  c.Display
+  d.Search
+    I.by ID
+    II.by full name
+3.Sales Data
+  a.Calculate Turnover
+    *Different time frames
+  b.Display
