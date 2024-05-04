@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Email: hani.anvari@ut.ac.ir                                                                 //
-// Github: https://github.com/Hani-Anvari/B_Repository.git                                     //
+// Github: https://github.com/Hani-Anvari/Store-Management.git                                 //
 //                                                                                             //
 //                                                                                             //
 //                                                                                             //
