@@ -1,4 +1,4 @@
-1 Smartphone 800 15
+1 Smartphone 700 15
 2 Laptop 1100 10
 3 Headphones 150 30
 4 Camera 500 20
