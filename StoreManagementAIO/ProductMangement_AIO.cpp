@@ -807,6 +807,8 @@ bool DisplayCustomer(CustomerList &cList, Inventory &inventory, SalesManagement 
               else {return false;}
             }
             else if(command == "2") {
+              std::system("CLS");
+              customer.loadCart();
               std::cout << "Customer's Cart preview Section.\n\n";
               customer.displayCart(inventory);
               std::cout << "=================================\n"
@@ -854,6 +856,8 @@ bool DisplayCustomer(CustomerList &cList, Inventory &inventory, SalesManagement 
               else {return false;}
             }
             else if(command == "2") {
+              std::system("CLS");
+              customer.loadCart();
               std::cout << "Customer's Cart preview Section.\n\n";
               customer.displayCart(inventory);
               std::cout << "=================================\n"
