@@ -109,7 +109,7 @@ class Inventory {
 
   void update(Product &product) {inventory[product.get_ID()] = product;}
 
-  
+
 
   Product findProduct(int &id) {return inventory[id];}
 
@@ -128,7 +128,7 @@ class Inventory {
   void Display() {
     std::cout << std::left << std::setw(4) << "ID" << std::setw(15) <<  "Name" << std::setw(10) << "Price" << std::setw(10) << "Quantity" << std::endl;
     for(const auto& pair: inventory) {
-      std::cout << std::left << std::setw(4) << pair.second.get_ID() << std::setw(15) << pair.second.get_name() << std::setw(10) << pair.second.get_price() << std::setw(10) << pair.second.get_quantity() << '\n'; 
+      std::cout << std::left << std::setw(4) << pair.second.get_ID() << std::setw(15) << pair.second.get_name() << std::setw(10) << pair.second.get_price() << std::setw(10) << pair.second.get_quantity() << '\n';
     }
   }
 };
@@ -177,7 +177,7 @@ class SalesManagement {
     for(const auto& pair: SalesData) {
       int id = pair.second.ID;
       Product product = inventory.findProduct(id);
-      std::cout << std::left <<std::setw(15) << pair.second.date << std::setw(15) << product.get_name() << std::setw(10) << pair.second.price << std::setw(10) << pair.second.quantity << std::setw(10) << pair.second.price * pair.second.quantity << '\n'; 
+      std::cout << std::left <<std::setw(15) << pair.second.date << std::setw(15) << product.get_name() << std::setw(10) << pair.second.price << std::setw(10) << pair.second.quantity << std::setw(10) << pair.second.price * pair.second.quantity << '\n';
     }
   }
 };
@@ -219,7 +219,7 @@ class Customer {
     else{return false;}
   }
 //void Cusomer::pay() {total = 0;}
-  
+
   void displayCart(Inventory &inventory) {
     if (cart.empty()) {
       std::cout << "Your cart is empty." << std::endl;
@@ -232,7 +232,7 @@ class Customer {
         int id = order.ID;
         TotalPrice += order.price * order.quantity;
         Product product = inventory.findProduct(id);
-        std::cout << std::left << std::setw(15) << order.date << std::setw(15) << product.get_name() << std::setw(10) << order.price << std::setw(10) << order.quantity << std::setw(10) << order.price * order.quantity << '\n';  
+        std::cout << std::left << std::setw(15) << order.date << std::setw(15) << product.get_name() << std::setw(10) << order.price << std::setw(10) << order.quantity << std::setw(10) << order.price * order.quantity << '\n';
       }
       std::cout << "Total Price of this Cart: " << TotalPrice << '\n';
     }
@@ -333,7 +333,7 @@ class CustomerList {
   void Display() {
     std::cout << std::left << std::setw(4) << "ID" << std::setw(15) << "Name" << std::setw(15) << "Family" << std::setw(10) << "Total" << std::endl;
     for(const auto& pair: customerList) {
-      std::cout << std::left << std::setw(4) << pair.second.ID << std::setw(15) << pair.second.name << std::setw(15) << pair.second.family << std::setw(10) << pair.second.total << '\n'; 
+      std::cout << std::left << std::setw(4) << pair.second.ID << std::setw(15) << pair.second.name << std::setw(15) << pair.second.family << std::setw(10) << pair.second.total << '\n';
     }
   }
 };
@@ -381,7 +381,7 @@ command:
       running = addProduct(inventory);
     } else if(command == "2") {
       running = DisplayProduct(inventory);
-    } 
+    }
     else if(command == "0") {std::system("CLS"); running = true;}
     else if(command == "00") {std::system("CLS"); running = false;}
     else {std::cout << "Invalid choice. Please try again.\n"; goto Pcommand;}
@@ -412,7 +412,7 @@ command:
       running = calTurnover(notebook);
     }
     else if(command == "2") {
-      running = displaySalesData(notebook, inventory); 
+      running = displaySalesData(notebook, inventory);
     }
     else if(command == "0") {std::system("CLS"); running = true;}
     else if(command == "00") {std::system("CLS"); running = false;}
@@ -425,7 +425,7 @@ command:
 
 } while(running);
 
-//Saving App's data 
+//Saving App's data
   inventory.save();
   cList.save();
   Product::save_counter();
@@ -486,7 +486,7 @@ std::cout << "Here you can Add your customers data and save them for later use.\
 std::cout << "Customer's Family: "; std::cin >> customer.family;
     Customer newcustomer(customer.name, customer.family); customer.ID = newcustomer.get_ID();
     cList.update(customer);
-std::cout << "your customer is added to the Customers List.\n" 
+std::cout << "your customer is added to the Customers List.\n"
           << "This customer's ID is: " << customer.ID << '\n'
           << "=================================\n"
           << "1.Add purchases for this customer.\n"
@@ -496,7 +496,7 @@ std::cout << "your customer is added to the Customers List.\n"
           << "Enter the Number of the action you want: ";
   command2:
     std::cin >> command;
-    if(command == "1") { 
+    if(command == "1") {
       if(addPurchase(newcustomer, inventory, notebook, cList)) {return true;}
       else {return false;}
     } else if(command == "2") {std::system("CLS"); goto AddCustomer;
@@ -508,14 +508,14 @@ std::cout << "your customer is added to the Customers List.\n"
 bool addProduct(Inventory &inventory) {
 AddProduct:
   std::system("CLS");
-  std::string command;                                                                                                         
+  std::string command;
 std::cout << "Here you can Add your products data and save them for later use.\n"
           << "Product's Name: ";     std::string name; std::cin >> name;
 std::cout << "Product's price: ";         int price;   std::cin >> price;
 std::cout << "Product's quantity: ";      int quantity;std::cin >> quantity;
     Product newproduct(name, price, quantity, true);
     inventory.update(newproduct);
-std::cout << "your product is added to the inventory.\n" 
+std::cout << "your product is added to the inventory.\n"
           << "This product's ID is: " << newproduct.get_ID() << '\n'
           << "=================================\n"
           << "1.Add another product.\n"
@@ -540,7 +540,7 @@ std::cout << "Here you can record the purchases of the customer: " << customer.g
           << "please provide the purchase's details:\n"
           << "Date of purchase(y-m-d\\e.g. 2024-04-05): "; std::cin >> order.date;
 ChangeProduct:
-std::cout << "Product's ID: "; std::cin >> order.ID; 
+std::cout << "Product's ID: "; std::cin >> order.ID;
     Product product = inventory.findProduct(order.ID);
 std::cout << "Product's details:\n"<< std::left << std::setw(4) << "ID" << std::setw(15) << "Name" << std::setw(10) << "Price" << std::setw(10) << "Quantity" << std::endl
                       << std::setw(4) << product.get_ID() << std::setw(15) << product.get_name() << std::setw(10) << product.get_price() << std::setw(10) << product.get_quantity() << '\n'
@@ -552,7 +552,7 @@ std::cout << "Product's details:\n"<< std::left << std::setw(4) << "ID" << std::
           if(command == "1") {
             std::cout << "Amount of the order: "; amount: std::cin >> order.quantity; order.price = product.get_price();
             if(customer.buy(product, order)) {
-              std::system("CLS"); 
+              std::system("CLS");
               cList.update(customer.get_cData());
               notebook.add(order);
               inventory.update(product);
@@ -563,7 +563,7 @@ std::cout << "Product's details:\n"<< std::left << std::setw(4) << "ID" << std::
                         << "00.Exit the App"
                         << "Enter the Number of the action you want: ";
                     command4:
-              std::cin >> command;    
+              std::cin >> command;
               if(command == "1") {std::system("CLS"); goto AddPurchase;}
               else if(command == "0") {std::system("CLS"); customer.saveCart(); return true;}
               else if(command == "00") {std::system("CLS"); customer.saveCart(); return false;}
@@ -578,7 +578,7 @@ std::cout << "Product's details:\n"<< std::left << std::setw(4) << "ID" << std::
                     << "00.Exit the App"
                     << "Enter the Number of the action you want: ";
             command3:
-              std::cin >> command;    
+              std::cin >> command;
               if(command == "1") {goto amount;}
               else if(command == "2") {std::system("CLS"); goto AddPurchase;}
               else if(command == "0") {std::system("CLS"); customer.saveCart(); return true;}
@@ -590,7 +590,7 @@ std::cout << "Product's details:\n"<< std::left << std::setw(4) << "ID" << std::
           else if(command == "0") {std::system("CLS"); return true;}
           else if(command == "00") {std::system("CLS"); return false;}
           else {std::cout << "Invalid choice. Please try again.\n"; goto apcommand;}
-          
+
 }
 bool DisplayProduct (Inventory &inventory) {
   std::system("CLS");
@@ -673,7 +673,7 @@ bool DisplayProduct (Inventory &inventory) {
         }
         else if(command == "0") {std::system("CLS"); return true;}
         else if(command == "00") {std::system("CLS"); return false;}
-        else {std::cout << "Invalid choice. Please try again.\n"; goto dpcommand2;}   
+        else {std::cout << "Invalid choice. Please try again.\n"; goto dpcommand2;}
     }
     else if(command == "2") {
       std::system("CLS");
@@ -821,7 +821,7 @@ bool DisplayCustomer(CustomerList &cList, Inventory &inventory, SalesManagement 
               if(addPurchase(customer, inventory, notebook, cList)) {return true;}
               else {return false;}
             }
-            else if(command == "4") {goto Search;} 
+            else if(command == "4") {goto Search;}
             else if(command == "0") {std::system("CLS"); return true;}
             else if(command == "00") {std::system("CLS"); return false;}
             else {std::cout << "Invalid choice. Please try again.\n"; goto dpcommand6;}
@@ -876,7 +876,7 @@ bool DisplayCustomer(CustomerList &cList, Inventory &inventory, SalesManagement 
         }
         else if(command == "0") {std::system("CLS"); return true;}
         else if(command == "00") {std::system("CLS"); return false;}
-        else {std::cout << "Invalid choice. Please try again.\n"; goto dpcommand2;}   
+        else {std::cout << "Invalid choice. Please try again.\n"; goto dpcommand2;}
     }
     else if(command == "2") {
       std::system("CLS");
@@ -911,7 +911,7 @@ EditCustomer:
               std::system("CLS");
               std::cout << "Editing Name\n"
                         << "Current Name: " << customer.get_name()
-                        << " New Name: "; std::string name; std::cin>>name; customer.set_name(name); CustomerData cd = customer.get_cData(); cList.update(cd); 
+                        << " New Name: "; std::string name; std::cin>>name; customer.set_name(name); CustomerData cd = customer.get_cData(); cList.update(cd);
               std::system("CLS");
               std::cout << "Customer's Name succussfully changed to: " << customer.get_name()
                         << "\n=================================\n"
@@ -1019,7 +1019,7 @@ bool calTurnover(SalesManagement &notebook) {
       if(command == "1") {goto cal;}
       else if(command == "0") {std::system("CLS"); return true;}
       else if(command == "00") {std::system("CLS"); return false;}
-      else {std::system("CLS"); 
+      else {std::system("CLS");
             std::cout << "Invalid choice. Please try again.\n"
                       << "=================================\n"
                       << "1.Calculate Turnover for a different time frame.\n"
@@ -1027,7 +1027,7 @@ bool calTurnover(SalesManagement &notebook) {
                       << "0.Exit the App.\n"
                       << "Enter the Number of the action you wish to do: ";
             goto command4;}
-    
+
 }
 
 bool displaySalesData(SalesManagement &notebook, Inventory &inventory) {
