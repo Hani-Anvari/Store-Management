@@ -482,8 +482,8 @@ AddCustomer:
   std::string command;
   CustomerData customer;
 std::cout << "Here you can Add your customers data and save them for later use.\n"
-          << "Customer's Name: ";   std::cin >> customer.name;
-std::cout << "Customer's Family: "; std::cin >> customer.family;
+          << "Customer's Name(do not use space): ";   std::cin >> customer.name;
+std::cout << "Customer's Family(do not use space): "; std::cin >> customer.family;
     Customer newcustomer(customer.name, customer.family); customer.ID = newcustomer.get_ID();
     cList.update(customer);
 std::cout << "your customer is added to the Customers List.\n"
@@ -510,7 +510,7 @@ AddProduct:
   std::system("CLS");
   std::string command;
 std::cout << "Here you can Add your products data and save them for later use.\n"
-          << "Product's Name: ";     std::string name; std::cin >> name;
+          << "Product's Name(do not use space): ";     std::string name; std::cin >> name;
 std::cout << "Product's price: ";         int price;   std::cin >> price;
 std::cout << "Product's quantity: ";      int quantity;std::cin >> quantity;
     Product newproduct(name, price, quantity, true);

@@ -10,3 +10,5 @@
 10 Charger 8 10
 11 Case 7 100
 12 iphone14 50000000 2
+13 matin 100000000 0
+14 matin 30000 0
