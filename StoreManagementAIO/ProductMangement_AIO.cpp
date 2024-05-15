@@ -250,7 +250,7 @@ class Customer {
   }
 
   void saveCart() {
-    std::ofstream file(cartName, std::ios::app);
+    std::ofstream file(cartName);
     if(file.is_open()) {
       for(const Order& order: cart)
         file << order.date << ' ' << order.ID << ' ' << order.quantity << ' ' << order.price << '\n';
@@ -309,7 +309,7 @@ class CustomerList {
   }
 
   void update(CustomerData customer) {customerList[customer.ID] = customer;}
-  CustomerData find(int &id, Customer &customer) {return customerList[id];}
+  CustomerData find(int &id) {return customerList[id];}
 
   bool SearchByID(int &id, Customer &customer) {
     CustomerData customerdata = customerList[id];

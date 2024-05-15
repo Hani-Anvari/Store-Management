@@ -4,6 +4,7 @@
 #include "Product.h"
 #include "CustomerData.h"
 #include "Order.h"
+#include "Inventory.h"
 #include <iostream>
 #include <vector>
 
@@ -39,6 +40,7 @@ class Customer {
 
     bool buy(Product &p, Order &order);
     //void pay();
+    void displayCart(Inventory &inventory);
 
     void loadCart();
     void saveCart();

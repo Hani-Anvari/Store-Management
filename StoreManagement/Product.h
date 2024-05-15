@@ -10,7 +10,7 @@ class Product {
     std::string name;
   public:
     Product(){}
-    Product(std::string n, int p, int q, bool NewProduct = true): name(n), price(p), quantity(q) {if(NewProduct){ID = counter++;}}
+    Product(std::string &n, int &p, int &q, bool NewProduct = true): name(n), price(p), quantity(q) {if(NewProduct){ID = counter++;}}
 
     //set functions
     void set_name(std::string &name);

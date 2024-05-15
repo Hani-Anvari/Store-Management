@@ -4,6 +4,7 @@
 #include "Order.h"
 #include <fstream>
 #include <string>
+#include <iomanip>
 
 
 int Customer::counter = 1;
@@ -29,6 +30,23 @@ bool Customer::buy(Product &p, Order &order) {
   else{return false;}
 }
 //void Cusomer::pay() {total = 0;}
+void Customer::displayCart(Inventory &inventory) {
+    if (cart.empty()) {
+      std::cout << "Your cart is empty." << std::endl;
+      return;
+    }
+    else {
+      int TotalPrice = 0;
+      std::cout << std::left << std::setw(15) << "Date" << std::setw(15) <<  "Name" << std::setw(10) << "Price" << std::setw(10) << "Quantity" << std::setw(10) << "Total" << std::endl;
+      for(const Order& order: cart) {
+        int id = order.ID;
+        TotalPrice += order.price * order.quantity;
+        Product product = inventory.findProduct(id);
+        std::cout << std::left << std::setw(15) << order.date << std::setw(15) << product.get_name() << std::setw(10) << order.price << std::setw(10) << order.quantity << std::setw(10) << order.price * order.quantity << '\n';
+      }
+      std::cout << "Total Price of this Cart: " << TotalPrice << '\n';
+    }
+}
 
 void Customer::loadCart() {
   std::ifstream file(cartName);
@@ -51,7 +69,7 @@ void Customer::saveCart() {
 }
 
 void Customer::save_counter() {
-  std::ofstream file("pid.txt");
+  std::ofstream file("cid.txt");
   if(file.is_open()) {
     file << counter;
     file.close();
@@ -59,7 +77,7 @@ void Customer::save_counter() {
   else {std::cout << "Failed to save customer counter.\n";}
 }
 void Customer::load_counter() {
-  std::ifstream file("pid.txt");
+  std::ifstream file("cid.txt");
   if(file.is_open()) {
     file >> counter;
     file.close();

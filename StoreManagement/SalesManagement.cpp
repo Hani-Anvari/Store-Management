@@ -1,6 +1,7 @@
 #include "SalesManagement.h"
 #include "Order.h"
 #include <fstream>
+#include <iomanip>
 
 
 bool SalesManagement::load() {
@@ -32,4 +33,13 @@ double SalesManagement::turnover(std::string &startDate, std::string &endDate) {
           turnover += pair.second.quantity * pair.second.price;
     }
     return turnover;
+}
+
+void SalesManagement::display(Inventory &inventory) {
+    std::cout << std::left << std::setw(15) << "Date" << std::setw(15) <<  "Name" << std::setw(10) << "Price" << std::setw(10) << "Quantity" << std::setw(10) << "Total" << std::endl;
+    for(const auto& pair: SalesData) {
+      int id = pair.second.ID;
+      Product product = inventory.findProduct(id);
+      std::cout << std::left <<std::setw(15) << pair.second.date << std::setw(15) << product.get_name() << std::setw(10) << pair.second.price << std::setw(10) << pair.second.quantity << std::setw(10) << pair.second.price * pair.second.quantity << '\n';
+    }
 }

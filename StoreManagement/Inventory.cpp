@@ -1,6 +1,7 @@
 #include "Inventory.h"
 #include "Product.h"
 #include <fstream>
+#include <iomanip>
 
 void Inventory::load() {
     std::ifstream file(InventoryFile);
@@ -42,8 +43,8 @@ bool Inventory::SearchByName(std::string &name, Product &product) {
 }
 
 void Inventory::Display() {
-    std::cout << "ID\tName\tPrice\tQunatity\n";
+    std::cout << std::left << std::setw(4) << "ID" << std::setw(15) <<  "Name" << std::setw(10) << "Price" << std::setw(10) << "Quantity" << std::endl;
     for(const auto& pair: inventory) {
-      std::cout << pair.second.get_ID() << '\t' << pair.second.get_name() << '\t' << pair.second.get_price() << '\t' << pair.second.get_quantity() << '\n'; 
+      std::cout << std::left << std::setw(4) << pair.second.get_ID() << std::setw(15) << pair.second.get_name() << std::setw(10) << pair.second.get_price() << std::setw(10) << pair.second.get_quantity() << '\n';
     }
-  }
+}

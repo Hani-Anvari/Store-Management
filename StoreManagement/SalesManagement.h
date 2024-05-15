@@ -2,6 +2,7 @@
 #define SALESMANAGEMENT_H
 
 #include "Order.h"
+#include "Inventory.h"
 #include <string>
 #include <unordered_map>
 
@@ -16,6 +17,7 @@ class SalesManagement {
     bool add(Order order);
     
     double turnover(std::string &startDate, std::string &endDate);
+    void display(Inventory &inventory);
 };
 
 #endif
