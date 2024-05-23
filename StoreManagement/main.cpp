@@ -292,7 +292,7 @@ bool DisplayProduct (Inventory &inventory) {
           if(!flag) {
             std::cout << "No Product found!\n"
                       << "Type anything to return.";
-            std::cin >> command; goto Search;
+            std::cin.get(); goto Search;
           }
           else {
             std::cout << "Product found! \n"
@@ -322,7 +322,7 @@ bool DisplayProduct (Inventory &inventory) {
           if(!flag) {
             std::cout << "No Product found!\n"
                       << "Type anything to return.";
-            std::cin >> command; goto Search;
+            std::cin.get(); goto Search;
           }
           else {
             std::cout << "Product found! \n"
